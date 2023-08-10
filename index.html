@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<script crossorigin="anonymous" src="https://kit.fontawesome.com/3c5be74ba6.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<link href="style.css" rel="stylesheet">
+	<script src="script.js"></script>   
+	<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>   
+	<title> FRESHES Online Pizza🍕Deliverys</title>
+	</head>
+	<body>
+<!--Bar-->
+<div id="header-bar">
+<h4>FRESHES ORDER  0267342098📞<b>.</b></h4>	
+<h1 onclick="on()" class="fas fa-bars"></h1></div>
+<!--Slider-->
+<div id="slider">
+<div id="close" onclick="off()"></div>
+<div id="nav-bar"><ul>
+<li><h3>MyPizza🍕Deliverys Online<b>.</b></h3></li>
+<li><a href="#LOGO" onclick="off()">HOME</a></li>
+<li><a href="#PRODUCT" onclick="off()">FAST FOODS</a></li>
+<li><a href="#NEW" onclick="off()">NEW</a></li>
+<li><a href="#ABOUT" onclick="off()">FEEDBACK</a></li>
+<li><a href="#SERVICE" onclick="off()">SERVICE</a></li>
+<!--Switch-->
+<li style="display:flex;align-items:center;justify-content:space-between;">
+<h5>Night</h5>  
+<div id="switch" onclick="swch()">
+<div id="swch" onclick="off()"></div></div><h5>Light</h5></li>
+</ul></div></div>
+<!--Logo--> 
+<div id="logo"><ul data-aos="zoom-in-up">
+ <li><h5>MyPizza🍕Deliverys WELCOME YOU ALL NEW ARRIVALS 🤝.</h5></li>
+ <li><h2>Start Your 🍕 Order.</h2></li>
+ <li><a href="#product"><button>
+ Start</button></a></li>
+</ul></div>
+<!--Products-->
+<div id="product"></div>  
+<div id="info"></div>  
+<!--About-->
+<div id="about"><ul><li>
+<h1><b><u>Our Pizza🍕Services.</u></b></h1></li>
+<li style="display:flex;
+justify-content:space-between;">
+<img src="bsOt1YR.png">
+<img src="xViirw3.png">
+<img src="La9Dayf.png">
+<img src="OlrBYev.png">	
+</li>
+</ul></div>
+<!--Creator-->
+<div id="SERVICE"></div>
+ <script>
+var products = [
+{
+	name: "VEG PIZZA",
+	price: "180rs",
+	about:"A delight for veggie lovers! Choose from our wide range of delicious vegetarian pizzas, its softer and tastier.FOR DELIVERY CALL OUR COUSTOMER SERVICE ON 0242738625",
+	src: "pizza.jpg" 
+},{
+	name: "NON VEG PIZZA",
+	price: "210RS",
+	about:"Choose your favourite non-veg pizzas from the Domino's Pizza menu. Get fresh non-veg pizza with your choice of crusts & toppings.FOR DELIVERY CALL OUR COUSTOMER SERVICE ON:0242738625",
+	src: "NOV.jpg"
+},{	
+	name: "PIZZA MANIA",
+	price: "399RS",
+	about:"Indulge into mouth-watering taste of Pizza mania range, perfect answer to all your food cravings . IS AVAILABLE NOW.FOR DELIVERY CALL OUR COUSTOMER SERVICE ON:0242738625 ",
+	src: "pmg.jpg" 
+},{
+	name: "BURGER PIZZA",
+	price: "199RS",
+	about:"Bite into delight! Witness the epic combination of pizza and burger with our classic Burger Pizza, that looks good and tastes great!. IS AVAILABLE NOw.FOR DELIVERY CONTACT OUR COUSTOMER SERVICE ON:0242738625",
+	src: "bgpizza.jpg" 
+},{
+	name: "PARATHA PIZZA",
+	price: "299RS",
+	about:"An epic fusion of paratha and pizza with melting cheese & soft paneer fillings to satisfy all your indulgent cravings .IS AVAILABLE NOW:FOR DELIVERY CALL OUR COUSTOMER SERVICE ON:0242738625",
+	src: "hlq9urj.jpg" 
+},{
+	name: "CHICKEN LOVER PIZZA",
+	price: "359RS",
+	about:".Loaded with 5 different Chicken toppings - grilled Chicken Rashers, Chicken Meatballs, Chicken Tikka, herby Chicken Sausage and flavorful Chicken Keema . PIZZA IS AVAILABLE NOW:FOR DELIVERY CALL OUR COUSTOMER SERVICE ON:0242738625",
+	src: "M060FS.jpg"  
+},{
+	name: "PANEER & ONION PIZZA",
+	price: "210RS",
+	about:"Creamy Paneer / Onion.IS AVAILABLE NOW:FOR DELIVERY CALL OUR COUSTOMER SERVICE ON:0242738625",
+	src: "PO.jpg"
+},{
+	name: "CHICKEN  GOLDEN DELIGHT",
+	price: "499RS",
+	about:"Mmm! Barbeque chicken with a topping of golden corn loaded with extra cheese. Worth its weight in gold! . AVAILABLE NOW:FOR DELIVERY CALL OUR COUSTOMER SERVICE ON:0242738625",
+	src: "goldchik.jpg"
+}
+]  
+for(var p=0;p<products.length;p++){
+var product =
+document.getElementById("product");
+product.innerHTML+=`<div class="product" 
+style="background:url('${products[p].src}');
+background-size:cover;"
+onclick="info(${p})"	 data-aos="zoom-in-up">
+<div id="info-p"><h2>${products[p].name}</h2>
+<button id="buy">Buy $${products[p].price}</button></div>
+</div>`  
+} 
+function info(num){
+var info =
+document.getElementById("info");
+setTimeout(() => {
+info.style.display="block";  
+},1000);
+info.innerHTML=`<div class="img-box">
+<h1 class="fas fa-arrow-circle-left" onclick="back_home()"></h1><img src="${products[num].src}">	
+</div>
+<div class="info"><ul>
+ <li><h2>Info this Product</h2></li>
+ <li>${products[num].about}</li>
+<li><h4>Drop point location for Your Order</h4></li> 
+<li><form><input type="location" name="Location" placeholder="Write Your location" required><button type="reset">ENTER</button>
+&nbsp<input type="ID" name="ID" placeholder="Order ID" required=""><button type="reset" >Order Id</button></form></li>
+</ul></div>`	 
+} 
+Swal.fire({
+icon: 'success',
+title: 'Welcome😊 !',
+text: 'May You like it.',
+footer: 'Pizza Delivery🍕'
+}); 
+AOS.init({duration: 1500,}) 
+ </script>	
+	</body>
+</html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+	</head>
+	<body>
+	 <h2 style="text-align:center;">Checkout Paypal</h2>
+	<script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+<script>paypal.Buttons().render('body');</script>
+	</body>
+</html>
